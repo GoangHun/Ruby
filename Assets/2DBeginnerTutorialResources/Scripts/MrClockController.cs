@@ -6,6 +6,8 @@ using UnityEngine;
 public class MrClockController : MonoBehaviour
 {
 	public float speed = 4f;
+	private float currentMoveDistance = 0f;
+	public float moveDistance = 100f;
 
 	private Animator animator;
 	private Rigidbody2D rigidbody2d;
@@ -22,7 +24,8 @@ public class MrClockController : MonoBehaviour
 	public void FixedUpdate()
 	{
 		Vector2 position = rigidbody2d.position;
-		position += direction * speed * Time.deltaTime;
+		currentMoveDistance = speed * Time.deltaTime;
+		position += direction * currentMoveDistance;
 		rigidbody2d.MovePosition(position);
 	}
 
@@ -32,6 +35,12 @@ public class MrClockController : MonoBehaviour
 		var v = Input.GetAxis("Vertical");
 		direction = new Vector3(h, v);
 		var directionMag = direction.magnitude;
+
+		if (currentMoveDistance > moveDistance)
+		{
+			direction
+		}
+
 
 		if (directionMag > 1)
 		{
