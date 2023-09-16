@@ -21,6 +21,7 @@ public class Projectile : MonoBehaviour
 	{
 		if (collision.CompareTag("Enemy"))
 		{
+			collision.GetComponent<MrClockController>().Heal(1);
 			Destroy(gameObject);
 		}
 		

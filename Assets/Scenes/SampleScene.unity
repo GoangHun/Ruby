@@ -506,12 +506,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 8.428243}
-      - {x: -10.405319, y: 8.212311}
-      - {x: -14.739872, y: 8.278438}
-      - {x: -15.077443, y: -6.494832}
-      - {x: 10.216988, y: -5.486059}
-      - {x: 12.414394, y: 8.2875}
+    - - {x: -17.957603, y: 11.428123}
+      - {x: -17.952187, y: -10.149164}
+      - {x: 14.797085, y: -10.504675}
+      - {x: 14.801891, y: 11.503313}
   m_UseDelaunayMesh: 0
 --- !u!4 &721042908
 Transform:
@@ -8922,17 +8920,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 128854117996304922, guid: d9ad46e93d00b2245ae0a5a822bb0ffe, type: 3}
+      propertyPath: moveDistance
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 218809978135778224, guid: d9ad46e93d00b2245ae0a5a822bb0ffe, type: 3}
+      propertyPath: m_Mass
+      value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 218809978135778224, guid: d9ad46e93d00b2245ae0a5a822bb0ffe, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 218809978135778224, guid: d9ad46e93d00b2245ae0a5a822bb0ffe, type: 3}
+      propertyPath: m_Constraints
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 218809978135778224, guid: d9ad46e93d00b2245ae0a5a822bb0ffe, type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1571986053388005871, guid: d9ad46e93d00b2245ae0a5a822bb0ffe, type: 3}
       propertyPath: m_Name
       value: MrClockwork
       objectReference: {fileID: 0}
+    - target: {fileID: 1571986053388005871, guid: d9ad46e93d00b2245ae0a5a822bb0ffe, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 6040741312817389927, guid: d9ad46e93d00b2245ae0a5a822bb0ffe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.01
+      value: -3.89
       objectReference: {fileID: 0}
     - target: {fileID: 6040741312817389927, guid: d9ad46e93d00b2245ae0a5a822bb0ffe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.07
+      value: -0.31
       objectReference: {fileID: 0}
     - target: {fileID: 6040741312817389927, guid: d9ad46e93d00b2245ae0a5a822bb0ffe, type: 3}
       propertyPath: m_LocalPosition.z

@@ -6,7 +6,7 @@ TagManager:
   tags:
   - HealthItem
   - Enemy
-  - enermy
+  - Projectile
   layers:
   - Default
   - TransparentFX
