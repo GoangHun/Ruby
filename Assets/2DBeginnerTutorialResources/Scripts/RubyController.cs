@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class RubyController : MonoBehaviour
 {
-    public float speed = 4f;
+	private ParticleSystem hitParticle;
+
+	public float speed = 4f;
 
 	public Projectile projectilePrefab;
 	private Animator animator;
@@ -29,11 +31,13 @@ public class RubyController : MonoBehaviour
 		rigidbody2d = GetComponent<Rigidbody2D>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		audioSource = GetComponent<AudioSource>();
+		hitParticle = GetComponentInChildren<ParticleSystem>(); //자식 오브젝트 포함 컴포넌트가 하나만 있을 때 가능
 	}
 
 	private void Start()
 	{
 		currentHp = maxHp;
+		//hitParticle.Stop();
 	}
 
 	public void FixedUpdate()
@@ -91,7 +95,7 @@ public class RubyController : MonoBehaviour
 	public void Heal(int hpPoint)
 	{
 		currentHp += Mathf.Clamp(currentHp + hpPoint, 0, maxHp);
-		//audioSource.PlayOneShot(collectable);	
+		audioSource.PlayOneShot(collectable);	
 		AudioSource.PlayClipAtPoint(collectable, transform.position);	//
 		Debug.Log(audioSource.isPlaying);
 		Debug.Log("Heal: " + currentHp);
@@ -106,11 +110,14 @@ public class RubyController : MonoBehaviour
 		audioSource.clip = hitClip;
 		audioSource.Play();
 
-		currentHp -= Mathf.Clamp(currentHp - damage, 0, maxHp);
+		currentHp = Mathf.Clamp(currentHp - damage, 0, maxHp);
 		Debug.Log(currentHp);
 
 		isInvincible = true;	
 		invincibleTimer = timeInvincible;
 		animator.SetTrigger("Hit");
+
+		//hitParticle.Stop();
+		hitParticle.Play();
 	}
 }

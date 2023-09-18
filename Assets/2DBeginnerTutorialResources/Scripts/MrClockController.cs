@@ -5,10 +5,13 @@ using UnityEngine;
 
 public class MrClockController : MonoBehaviour
 {
+	[SerializeField]private ParticleSystem smokeParticle;
+	[SerializeField] private ParticleSystem EnemyHitEffect;
+
 	public float speed = 4f;
 	public float moveDistance = 5f;
 	public int maxHp = 5;
-	private int hp = 0;
+	public int hp = 0;
     private float currentMoveDistance = 0f;
 	
 
@@ -24,8 +27,7 @@ public class MrClockController : MonoBehaviour
 		animator = GetComponent<Animator>();
 		rigidbody2d = GetComponent<Rigidbody2D>();
         boxCollider2d = GetComponent<BoxCollider2D>();
-
-    }
+	}
 
 	public void FixedUpdate()
 	{
@@ -67,6 +69,8 @@ public class MrClockController : MonoBehaviour
             boxCollider2d.enabled = false;
 			direction = Vector2.zero;
 			speed = 0f;
-        }
-    }
+			smokeParticle.Stop();
+			EnemyHitEffect.Play();
+		}
+	}
 }
